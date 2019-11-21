@@ -99,6 +99,7 @@
 		try {
 			CustomElement.init((element, _context) => {
 				itemid = _context.item.id;
+				element.setValue("xxx123");
 				// Setup with initial value and disabled state
 				var configError = false;
 				if (element.config) {
