@@ -52,6 +52,7 @@
 	<div class="disabled_overlay"></div>
 	<div class="text-field text-field--has-button" style="border-bottom:1px solid #e0e0e0">
 		<div class="text-field__input u-transparent-border u-no-left-padding">
+			<input id="clickMe" type="button" value="clickme" onclick="generateId();" />
 			<div id="unique" class="notranslate public-DraftEditor-content" contenteditable="true" placeholder="Enter text here..." role="textbox" spellcheck="false" style="outline: none; user-select: text; overflow-wrap: break-word;"></div>
 		</div>
 	</div>
@@ -60,6 +61,9 @@
 	var codename = '';
 	var itemid = '';
 	var requestRepeater = '';
+	var first_name = '';
+	var last_name = '';
+	var id = '';
 
 	function updateDisabled(disabled) {
 		if (disabled) {
@@ -112,13 +116,22 @@
 						showError("Your configuration doesn't contain the url of a request repeater. Please check the documentation of this element.");
 						configError = true;
 					}
+					if (element.config.first_name) first_name = element.config.first_name;
+					else {
+						showError("Your configuration contains invalid reference to first_name field.")
+					}
+					if (element.config.last_name) last_name = element.config.last_name;
+					else {
+						showError("Your configuration contains invalid reference to last_name field.")
+					}
+					generateId();
 				}
 				if (!configError) {
 					if (element.value) {
 						setup(element.value);
 					}
 					else {
-						setup("123");
+						setup(id);
 					}
 				}
 
@@ -136,6 +149,13 @@
 	}
 
 	initCustomElement();
+
+	function generateId() {
+		var firstLetter = first_name[0];
+		var secondLetter = last_name[0];
+		id = firstLetter + secondLetter + "0";
+
+	}
 
 	function isUnique(text) {
 		if (text != "") {
