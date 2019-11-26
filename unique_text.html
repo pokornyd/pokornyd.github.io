@@ -119,12 +119,14 @@
 					}
 					if (element.config.first_name) CustomElement.getElementValue("first_name", (value) => {
 						first_name = value;
-
 					});
 					else {
 						showError("Your configuration contains invalid reference to first_name field.")
 					}
-					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name");
+					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name", (value) => {
+						last_name = value;
+						console.log(last_name);
+					});
 					else {
 						showError("Your configuration contains invalid reference to last_name field.")
 					}
