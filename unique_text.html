@@ -118,7 +118,7 @@
 						configError = true;
 					}
 					if (element.config.first_name) CustomElement.getElementValue("first_name", (value) => {
-						first_name = fName;
+						first_name = value;
 					});
 					else {
 						showError("Your configuration contains invalid reference to first_name field.")
