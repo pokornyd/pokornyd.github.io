@@ -117,21 +117,19 @@
 						showError("Your configuration doesn't contain the url of a request repeater. Please check the documentation of this element.");
 						configError = true;
 					}
-					if (element.config.first_name) CustomElement.getElementValue("first_name", (fName) => {
-						console.log(fName);
+					if (element.config.first_name) CustomElement.getElementValue("first_name", (value) => {
 						first_name = fName;
-						console.log(first_name);
 					});
 					else {
 						showError("Your configuration contains invalid reference to first_name field.")
 					}
-					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name");
+					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name", (value) => {
+						last_name = value;
+					});
 					else {
 						showError("Your configuration contains invalid reference to last_name field.")
 					}
 					generateId();
-					console.log(first_name);
-					console.log(last_name);
 				}
 				if (!configError) {
 					if (element.value) {
