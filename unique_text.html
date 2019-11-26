@@ -129,7 +129,6 @@
 					else {
 						showError("Your configuration contains invalid reference to last_name field.")
 					}
-					generateId();
 				}
 				if (!configError) {
 					if (element.value) {
@@ -154,7 +153,7 @@
 	}
 
 	initCustomElement();
-
+	generateId();
 	function generateId() {
 		console.log(first_name);
 		//var firstLetter = first_name.charAt(0);
