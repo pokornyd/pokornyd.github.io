@@ -119,14 +119,12 @@
 					}
 					if (element.config.first_name) CustomElement.getElementValue("first_name", (value) => {
 						first_name = value;
-						console.log(value);
 					});
 					else {
 						showError("Your configuration contains invalid reference to first_name field.")
 					}
 					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name", (value) => {
 						last_name = value;
-						console.log(last_name);
 					});
 					else {
 						showError("Your configuration contains invalid reference to last_name field.")
@@ -158,9 +156,10 @@
 	initCustomElement();
 
 	function generateId() {
-		var firstLetter = first_name.charAt(0);
-		var secondLetter = last_name.charAt(0);
-		id = firstLetter + secondLetter + "0";
+		console.log(first_name);
+		//var firstLetter = first_name.charAt(0);
+		//var secondLetter = last_name.charAt(0);
+		//id = firstLetter + secondLetter + "0";
 
 	}
 
