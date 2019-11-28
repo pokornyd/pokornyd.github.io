@@ -144,15 +144,21 @@
 
 	function process(string) {
 		var firstLetter = string.charAt(0);	
+		return firstLetter;
 	}
 	function generateId() {
 		//var firstLetter = first_name.charAt(0);
 		//var secondLetter = last_name.charAt(0);
 		//id = firstLetter + secondLetter + "0";
+		var id = "";
 		if (true) { 
 			CustomElement.getElementValue("first_name", (value) => {
-			setup(value);			
+				id += value;			
 			});
+			CustomElement.getElementValue("last_name", (value) => {
+				id += value;
+			});
+			setup(id);
 		}		
 		// else {
 		// 	showError("Your configuration contains invalid reference to first_name field.")
