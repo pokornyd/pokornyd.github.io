@@ -171,13 +171,14 @@
 		letters
 			.then(function(result) {
 				var id = result.toLowerCase() + idNumber.toString()
-				if (isUnique(id))
-				{
-					setup(id);
-				}
-				else{
-					generateId(idNumber+1);
-				}
+				setup (id);
+				// if (isUnique(id))
+				// {
+				// 	setup(id);
+				// }
+				// else{
+				// 	generateId(idNumber+1);
+				// }
 
 			})
 			.catch(function(error) {
