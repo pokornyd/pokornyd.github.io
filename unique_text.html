@@ -147,7 +147,7 @@
 		return firstLetter;
 	}
 
-	function getLetters() {
+	async function getLetters() {
 		var letters = "";
 		if (true) { 
 			CustomElement.getElementValue("first_name", (value) => {
@@ -160,10 +160,10 @@
 		}
 	}	
 
-	async function generateId() {
-			var idNumber = 000;
-			var letters = await getLetters();
-			setup(letters);
+function generateId() {
+			//var idNumber = 000;
+			//var letters = await getLetters();
+			setup("test");
 			
 
 		}		
