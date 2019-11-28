@@ -146,19 +146,25 @@
 		var firstLetter = string.charAt(0);	
 		return firstLetter;
 	}
-	function generateId() {
-		//var firstLetter = first_name.charAt(0);
-		//var secondLetter = last_name.charAt(0);
-		//id = firstLetter + secondLetter + "0";
-		var id = "";
+
+	function getLetters() {
+		var letters = "";
 		if (true) { 
 			CustomElement.getElementValue("first_name", (value) => {
-				id += value.charAt(0);
+				letters += value.charAt(0);
 				CustomElement.getElementValue("last_name", (value) => {
-					id += value.charAt(0);
-					setup(id);
+					letters += value.charAt(0);
+					return letters;
 				});			
 			});
+		}
+	}	
+
+	function generateId() {
+			var idNumber = 000;
+			var letters = getLetters();
+			var id = letters + idNumber;
+			setup (id);
 
 		}		
 		// else {
