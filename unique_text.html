@@ -172,13 +172,13 @@
 			.then(function(result) {
 				var id = result.toLowerCase() + idNumber.toString()
 				setup (id);
-				// if (isUnique(id))
-				// {
-				// 	setup(id);
-				// }
-				// else{
-				// 	generateId(idNumber+1);
-				// }
+				if (isUnique(id))
+				{
+					setup(id);
+				}
+				else{
+					setup("nefunguje");
+				}
 
 			})
 			.catch(function(error) {
