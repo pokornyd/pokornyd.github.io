@@ -160,9 +160,11 @@
 		}
 	}	
 
-	function generateId() {
+	async function generateId() {
 			var idNumber = 000;
-			setup (getLetters());
+			var letters = await getLetters();
+			setup(letters);
+			
 
 		}		
 		// else {
