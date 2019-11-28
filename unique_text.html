@@ -77,7 +77,7 @@
 
 	function setup(value) {
 		$('#unique').text(value);
-		isUnique(value);
+		//isUnique(value);
 
 		$('body').on('input', '[contenteditable]', function() {
 			$('#unique').css("color","unset");
@@ -85,7 +85,7 @@
 			$('#unique-status').removeClass("item-status--failed");
 			$('#unique-status').addClass("status-checking");
 			$('#unique-status').text("checking");
-			isUnique($('#unique').text());
+			//isUnique($('#unique').text());
 			updateSize();
 		});
 	}
@@ -166,12 +166,19 @@
 		})
 	}	
 
-	function generateId() {
-		var idNumber = 0;
+	function generateId(idNumber) {
 		var letters = getLetters();
 		letters
 			.then(function(result) {
-				setup(result + idNumber.toString())
+				var id = result.toLowerCase() + idNumber.toString()
+				if (isUnique(id))
+				{
+					setup(id);
+				}
+				else{
+					generateId(idNumber+1);
+				}
+
 			})
 			.catch(function(error) {
 				console.log(error);
@@ -191,23 +198,25 @@
 						$('#unique-status').removeClass("status-checking");
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {
-							$('#unique').css("color","#ef5350");
-							$('#unique-status').addClass("item-status--failed");
-							$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
+							return false;
+							// $('#unique').css("color","#ef5350");
+							// $('#unique-status').addClass("item-status--failed");
+							// $('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
 						}
 						else {
-							$('#unique').css("color","#4caf50");
-							$('#unique-status').addClass("item-status--is-successful");
-							$('#unique-status').text("Unique value");
+							return true;
+							// $('#unique').css("color","#4caf50");
+							// $('#unique-status').addClass("item-status--is-successful");
+							// $('#unique-status').text("Unique value");
 						}
 					}
-					CustomElement.setValue(text);
+					//CustomElement.setValue(text);
 				}
 			});
 		}
-		else {
-			$('#unique-status').text("Waiting for an input");
-		}
+		// else {
+		// 	$('#unique-status').text("Waiting for an input");
+		// }
 	}
 
 
