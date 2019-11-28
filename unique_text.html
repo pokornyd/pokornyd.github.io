@@ -154,15 +154,15 @@
 				letters += value.charAt(0);
 				CustomElement.getElementValue("last_name", (value) => {
 					letters += value.charAt(0);
+					if (letters) {
+						resolve (letters);
+					}
+					else {
+						var err = new Error ("looks like there aint no letters");
+						reject(err);
+					}
 				});			
 			});
-
-			if (letters) {
-				resolve (letters);
-			}
-			else {
-				reject(error);
-			}
 		})
 	}	
 
