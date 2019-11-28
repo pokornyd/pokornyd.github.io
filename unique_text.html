@@ -167,32 +167,16 @@
 	}	
 
 	function generateId() {
-		var idNumber = 000;
+		var idNumber = 0;
 		var letters = getLetters();
 		letters
 			.then(function(result) {
-				letters = result;
+				setup(result + idNumber.toString())
 			})
 			.catch(function(error) {
 				console.log(error);
 			})
-		}
-		setup (letters);		
-		// else {
-		// 	showError("Your configuration contains invalid reference to first_name field.")
-		// }
-
-		// if (true) {
-		// 	CustomElement.getElementValue("last_name", (value) => {
-		// 	var firstLetterSurname = value.charAt(0);
-		// 	});
-		// }
-		// else {
-		// 	showError("Your configuration contains invalid reference to last_name field.")
-		// }
-		
-		//var id = firstLetterName + firstLetterSurname + "001";
-		//setup(id);
+		}	
 
 
 	function isUnique(text) {
