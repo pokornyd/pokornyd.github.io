@@ -172,7 +172,7 @@
 			.then(function(result) {
 				var id = result.toLowerCase() + idNumber.toString()
 				setup (id);
-				if (isUnique(id))
+				if (!isUnique(id))
 				{
 					setup(id);
 				}
