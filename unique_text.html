@@ -153,12 +153,13 @@
 		var id = "";
 		if (true) { 
 			CustomElement.getElementValue("first_name", (value) => {
-				id += value;
-				setup(id);			
+				id += value.charAt(0);
+				CustomElement.getElementValue("last_name", (value) => {
+					id += value.charAt(0);
+					setup(id);
+				});			
 			});
-			CustomElement.getElementValue("last_name", (value) => {
-				id += value;
-			});
+
 		}		
 		// else {
 		// 	showError("Your configuration contains invalid reference to first_name field.")
