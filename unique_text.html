@@ -130,6 +130,7 @@
 					else {
 						showError("Your configuration contains invalid reference to last_name field.")
 					}
+					console.log(last_name);
 				}
 				if (!configError) {
 					if (element.value) {
@@ -209,8 +210,7 @@
 		$('#unique-status').addClass("item-status--failed");
 		$('#unique-status').text(message);
 	}
-console.log("something");
-console.log(first_name);
+
 </script>
 
 </body>
