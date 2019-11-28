@@ -166,17 +166,18 @@
 		})
 	}	
 
-function generateId() {
-			var idNumber = 000;
-			var letters = getLetters();
-			letters
+	function generateId() {
+		var idNumber = 000;
+		var letters = getLetters();
+		letters
 			.then(function(result) {
-				setup(result);
+				letters = result;
 			})
 			.catch(function(error) {
 				console.log(error);
 			})
-		}		
+		}
+		setup (letters);		
 		// else {
 		// 	showError("Your configuration contains invalid reference to first_name field.")
 		// }
