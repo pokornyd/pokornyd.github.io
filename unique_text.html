@@ -147,25 +147,35 @@
 		return firstLetter;
 	}
 
-	async function getLetters() {
-		var letters = "";
-		if (true) { 
+	function getLetters() {
+		return new Promise(function(resolve, reject) {
+			var letters = "";
 			CustomElement.getElementValue("first_name", (value) => {
 				letters += value.charAt(0);
 				CustomElement.getElementValue("last_name", (value) => {
 					letters += value.charAt(0);
-					return letters;
 				});			
 			});
-		}
+
+			if (letters) {
+				resolve (letters);
+			}
+			else {
+				reject(error);
+			}
+		})
 	}	
 
-async function generateId() {
+function generateId() {
 			var idNumber = 000;
-			var letters = await getLetters();
-			setup(letters);
-			
-
+			var letters = getLetters();
+			letters
+			.then(function(result) {
+				setup(result);
+			})
+			.catch(function(error) {
+				alert(error);
+			})
 		}		
 		// else {
 		// 	showError("Your configuration contains invalid reference to first_name field.")
