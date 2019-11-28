@@ -117,20 +117,6 @@
 						showError("Your configuration doesn't contain the url of a request repeater. Please check the documentation of this element.");
 						configError = true;
 					}
-					if (element.config.first_name) first_name = CustomElement.getElementValue("first_name");//, (value) => {
-						//first_name = value;					
-					//});
-					else {
-						showError("Your configuration contains invalid reference to first_name field.")
-					}
-					if (element.config.last_name) last_name = CustomElement.getElementValue("last_name", (value) => {
-						last_name = value;
-						console.log(last_name);
-					});
-					else {
-						showError("Your configuration contains invalid reference to last_name field.")
-					}
-					console.log(last_name);
 				}
 				if (!configError) {
 					if (element.value) {
@@ -155,10 +141,31 @@
 	}
 
 	initCustomElement();
+
 	function generateId() {
 		//var firstLetter = first_name.charAt(0);
 		//var secondLetter = last_name.charAt(0);
 		//id = firstLetter + secondLetter + "0";
+		if (element.config.first_name) { 
+			CustomElement.getElementValue("first_name", (value) => {
+			var firstLetterName = value.charAt(0);				
+			});
+		}		
+		else {
+			showError("Your configuration contains invalid reference to first_name field.")
+		}
+
+		if (element.config.last_name) {
+			CustomElement.getElementValue("last_name", (value) => {
+			var firstLetterSurname = value.charAt[0];
+			});
+		}
+		else {
+			showError("Your configuration contains invalid reference to last_name field.")
+		}
+		
+		var id = firstLetterName + firstLetterSurname + "001";
+		setup(id);
 
 	}
 
@@ -192,6 +199,7 @@
 			$('#unique-status').text("Waiting for an input");
 		}
 	}
+
 
 	function otherThanCurrent(items, text) {
 		if (items.length > 0) {
