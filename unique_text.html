@@ -142,30 +142,33 @@
 
 	initCustomElement();
 
+	function process(string) {
+		var firstLetter = string.charAt(0);	
+	}
 	function generateId() {
 		//var firstLetter = first_name.charAt(0);
 		//var secondLetter = last_name.charAt(0);
 		//id = firstLetter + secondLetter + "0";
 		if (true) { 
 			CustomElement.getElementValue("first_name", (value) => {
-			var firstLetterName = value.charAt(0);				
+			setup(value);			
 			});
 		}		
-		else {
-			showError("Your configuration contains invalid reference to first_name field.")
-		}
+		// else {
+		// 	showError("Your configuration contains invalid reference to first_name field.")
+		// }
 
-		if (true) {
-			CustomElement.getElementValue("last_name", (value) => {
-			var firstLetterSurname = value.charAt(0);
-			});
-		}
-		else {
-			showError("Your configuration contains invalid reference to last_name field.")
-		}
+		// if (true) {
+		// 	CustomElement.getElementValue("last_name", (value) => {
+		// 	var firstLetterSurname = value.charAt(0);
+		// 	});
+		// }
+		// else {
+		// 	showError("Your configuration contains invalid reference to last_name field.")
+		// }
 		
-		var id = firstLetterName + firstLetterSurname + "001";
-		setup(id);
+		//var id = firstLetterName + firstLetterSurname + "001";
+		//setup(id);
 
 	}
 
