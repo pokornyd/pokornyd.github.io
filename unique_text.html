@@ -200,12 +200,14 @@
 					if (text == $('#unique').text()) {
 						$('#unique-status').removeClass("status-checking");
 						var name = otherThanCurrent(data.items, text);
-						if (data.items.length > 0 && name) {
+						if (data.items.length > 0 && name) {		
+							generateId(0);					
 							$('#unique').css("color","#ef5350");
 							$('#unique-status').addClass("item-status--failed");
 							$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
 						}
 						else {
+							generateId(0);
 							$('#unique').css("color","#4caf50");
 							$('#unique-status').addClass("item-status--is-successful");
 							$('#unique-status').text("Unique value");
