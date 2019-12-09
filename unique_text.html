@@ -69,7 +69,7 @@
 	var first_name = '';
 	var last_name = '';
 	var id = '';
-	var iter = 0;
+	var iter = 1;
 	var uniq = false;
 
 
@@ -210,7 +210,8 @@
 						else {
 							$('#unique').css("color","#4caf50");
 							$('#unique-status').addClass("item-status--is-successful");
-							$('#unique-status').text("Unique ID generated.");					
+							$('#unique-status').text("Unique ID generated.");
+							updateDisabled(true);					
 						}
 					}
 					CustomElement.setValue(text);
