@@ -52,12 +52,11 @@
 	<div class="disabled_overlay"></div>
 	<div class="text-field text-field--has-button" style="border-bottom:1px solid #e0e0e0">
 		<div class="text-field__input u-transparent-border u-no-left-padding">
-			<span id="unique"></span>
-			<div id="uniquex" class="notranslate public-DraftEditor-content" contenteditable="true" placeholder="Enter text here..." role="textbox" spellcheck="false" style="outline: none; user-select: text; overflow-wrap: break-word;"></div>
+			<div id="unique" class="notranslate public-DraftEditor-content" contenteditable="true" placeholder="Enter text here..." role="textbox" spellcheck="false" style="outline: none; user-select: text; overflow-wrap: break-word;"></div>
 			<input id="clickMe" type="button" value="Generate" onclick="generateId(0);" />
 		</div>
-		<div id="unique-status" class="status-checking item-status"></div>
 	</div>
+	<div id="unique-status" class="status-checking item-status">checking</div>
 <script>
 	var codename = '';
 	var itemid = '';
@@ -202,16 +201,24 @@
 						$('#unique-status').removeClass("status-checking");
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {							
+							$('#unique').css("color","#ef5350");
+							$('#unique-status').addClass("item-status--failed");
+							$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
 							iter += 1;
 							generateId(iter);
 						}
 						else {
 							$('#unique').css("color","#4caf50");
+							$('#unique-status').addClass("item-status--is-successful");
+							$('#unique-status').text("Unique value");
 						}
 					}
 					CustomElement.setValue(text);
 				}
 			});
+		}
+		else {
+			$('#unique-status').text("Waiting for an input");
 		}
 	}
 
