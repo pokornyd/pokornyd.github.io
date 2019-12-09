@@ -194,16 +194,17 @@
 						$('#unique-status').removeClass("status-checking");
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {							
-							// $('#unique').css("color","#ef5350");
-							// $('#unique-status').addClass("item-status--failed");
+							$('#unique').css("color","#ef5350");
+							$('#unique-status').addClass("item-status--failed");
 							$('#unique-status').text("Generating ID...");
 							iter += 1;
 							generateId();
 						}
 						else {
-							// $('#unique').css("color","#4caf50");
-							// $('#unique-status').addClass("item-status--is-successful");
-							$('#unique-status').text("Unique ID generated.");							
+							$('#unique').css("color","#4caf50");
+							$('#unique-status').addClass("item-status--is-successful");
+							$('#unique-status').text("Unique ID generated.");
+							$('#unique-status').addClass("item-status--is-successful");							
 						}
 					}
 					CustomElement.setValue(text);
