@@ -200,6 +200,7 @@
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {							
 							$('#unique').css("color","#ef5350");
+							$('#unique').text("generating");
 							//$('#unique-status').addClass("item-status--failed");
 							//$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
 							iter += 1;
