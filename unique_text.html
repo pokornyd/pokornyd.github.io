@@ -64,6 +64,7 @@
 	var first_name = '';
 	var last_name = '';
 	var id = '';
+	var iter = 0;
 
 
 	function updateDisabled(disabled) {
@@ -171,7 +172,6 @@
 		letters
 			.then(function(result) {
 				var id = result.toLowerCase() + idNumber.toString()
-				setup (id);
 				if (true)
 				{
 					setup(id);
@@ -204,7 +204,8 @@
 							$('#unique').css("color","#ef5350");
 							$('#unique-status').addClass("item-status--failed");
 							$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
-							generateId(1);
+							iter += 1;
+							generateId(iter);
 						}
 						else {
 							$('#unique').css("color","#4caf50");
