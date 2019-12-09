@@ -53,7 +53,7 @@
 	<div class="text-field text-field--has-button" style="border-bottom:1px solid #e0e0e0">
 		<div class="text-field__input u-transparent-border u-no-left-padding">
 			<div id="unique" class="notranslate public-DraftEditor-content" contenteditable="true" placeholder="Enter text here..." role="textbox" spellcheck="false" style="outline: none; user-select: text; overflow-wrap: break-word;"></div>
-			<input id="clickMe" type="button" value="Generate" onclick="generateId(iter);" />
+			<input id="clickMe" type="button" value="Generate" onclick="generateId();" />
 		</div>
 	</div>
 	<div id="unique-status" class="status-checking item-status">checking</div>
@@ -167,11 +167,11 @@
 		})
 	}	
 
-	function generateId(idNumber) {
+	function generateId() {
 		var letters = getLetters();
 		letters
 			.then(function(result) {
-				var id = result.toLowerCase() + idNumber.toString()
+				var id = result.toLowerCase() + iter.toString()
 				setup(id);
 
 			})
