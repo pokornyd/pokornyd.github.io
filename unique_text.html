@@ -60,6 +60,7 @@
 			<span class="idtext">ID: </span>
 			<span class="idtext" id="unique"></span>
 		</div>
+		<div id="unique-status" class="status-checking item-status">checking</div>
 	</div>
 	
 <script>
@@ -149,11 +150,6 @@
 
 	initCustomElement();
 
-	function process(string) {
-		var firstLetter = string.charAt(0);	
-		return firstLetter;
-	}
-
 	function getLetters() {
 		return new Promise(function(resolve, reject) {
 			var letters = "";
@@ -161,11 +157,11 @@
 				letters += value.charAt(0);
 				CustomElement.getElementValue("last_name", (value) => {
 					letters += value.charAt(0);
-					if (letters) {
+					if (letters.length == 2) {
 						resolve (letters);
 					}
 					else {
-						var err = new Error ("looks like there aint no letters");
+						var err = new Error ("Couldn't load first letters. Are both first name and last name fields populated and properly referenced in JSON config?");
 						reject(err);
 					}
 				});			
@@ -200,7 +196,6 @@
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {							
 							$('#unique').css("color","#ef5350");
-							$('#unique').text("generating");
 							//$('#unique-status').addClass("item-status--failed");
 							//$('#unique-status').html("Value is used in <strong>"+name+"</strong> item");
 							iter += 1;
