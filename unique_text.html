@@ -172,9 +172,16 @@
 		var letters = getLetters();
 		letters
 			.then(function(result) {
-				var id = result.toLowerCase() + iter.toString()
+				var id;
+				if (iter.toString().length == 1)
+				{
+					id = result.toLowerCase() + "00" + iter.toString()
+				} 
+				else 
+				{
+					id = result.toLowerCase() + "0" + iter.toString()
+				}
 				setup(id);
-
 			})
 			.catch(function(error) {
 				console.log(error);
@@ -195,14 +202,14 @@
 						var name = otherThanCurrent(data.items, text);
 						if (data.items.length > 0 && name) {							
 							$('#unique').css("color","#ef5350");
-							//$('#unique-status').addClass("item-status--failed");
+							$('#unique-status').addClass("item-status--failed");
 							$('#unique-status').text("Generating ID...");
 							iter += 1;
 							generateId();
 						}
 						else {
 							$('#unique').css("color","#4caf50");
-							//$('#unique-status').addClass("item-status--is-successful");
+							$('#unique-status').addClass("item-status--is-successful");
 							$('#unique-status').text("Unique ID generated.");					
 						}
 					}
@@ -211,7 +218,7 @@
 			});
 		}
 		else {
-			$('#unique-status').text("Waiting for an input");
+			$('#unique-status').text("Click to generate an ID");
 		}
 	}
 
