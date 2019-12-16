@@ -111,7 +111,7 @@
 			type: "GET",
 			dataType: 'text',
 			success: function (data) {
-				console.log(JSON.parse(String(data)));
+				//console.log(JSON.parse(String(data)));
 				iterateRichTexts(JSON.parse(String(data)));
 			}
 		});	
@@ -129,7 +129,8 @@
 	function findLinksIn(name,value) {
 		var reg = /<a([^>]+)>(.+?)<\/a>/g;
 		var result;
-		while((result = reg.exec(value)) !== null) {			
+		while((result = reg.exec(value)) !== null) {		
+			console.log(result);	
 			checkLink(result[1].split('"')[1],result[2],name);
 		}
 	}
