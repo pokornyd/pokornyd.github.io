@@ -41,7 +41,8 @@
 <body>
 	<div class="disabled_overlay"></div>
 	<div id="element">
-		<button id="check_links">Check links</button>
+        <button id="check_links">Check links</button>
+        <span id="test"></span>
 	</div>
 <script>	
 	var item_id = '';
@@ -148,7 +149,8 @@
 	}
 	
 	function showLinkResult(url,title,name,code) {	
-		document.write("<span>" + url + " " + code + "</span>");
+		//document.write("<span>" + url + " " + code + "</span>");
+        $('#test').text(code);
 	}
 	
 	function showError(message) {
