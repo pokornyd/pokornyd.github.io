@@ -111,7 +111,7 @@
 			type: "GET",
 			dataType: 'text',
 			success: function (data) {
-				console.log(data);
+				console.log(JSON.parse(String(data)));
 				iterateRichTexts(JSON.parse(String(data)));
 			}
 		});	
