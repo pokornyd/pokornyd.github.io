@@ -129,13 +129,13 @@
 	function findLinksIn(name,value) {
 		var reg = /<a([^>]+)>(.+?)<\/a>/g;
 		var result;
-		while((result = reg.exec(value)) !== null) {		
-			console.log(result);	
+		while((result = reg.exec(value)) !== null) {			
 			checkLink(result[1].split('"')[1],result[2],name);
 		}
 	}
 	
-	function checkLink(url,title,name) {			
+	function checkLink(url,title,name) {	
+		console.log(url);		
 		var data = {
 					  "url": url
 				   }
