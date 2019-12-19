@@ -136,7 +136,8 @@
 	
 	function checkLink(url,title,name) {	
 		console.log(url);		
-		var data = '{"url":' + url + '}';
+		var data = '{"url":"' + url + '"}';
+		console.log("funguje");
 		$.ajax({
 			url: "https://djp6a10pzi.execute-api.eu-central-1.amazonaws.com/default/urlChecker", // develop this service
 			type: "POST",
