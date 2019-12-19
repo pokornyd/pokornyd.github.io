@@ -137,9 +137,9 @@
 	function checkLink(url,title,name) {	
 		console.log(url);		
 		var data = '{"url":"' + url + '"}';
-		console.log("funguje");
+		console.log("v2");
 		$.ajax({
-			url: "https://djp6a10pzi.execute-api.eu-central-1.amazonaws.com/default/urlChecker", // develop this service
+			url: "https://amend.cz/checker.php",//"https://djp6a10pzi.execute-api.eu-central-1.amazonaws.com/default/urlChecker", // develop this service
 			type: "POST",
 			data: data,
 			dataType: "json",
